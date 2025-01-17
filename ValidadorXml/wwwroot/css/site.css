@@ -1,0 +1,58 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.estatus-vigente {
+    background-color: green !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.estatus-cancelado {
+    background-color: red !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.container-btn-comprobar {
+    display: none;
+    text-align: center;
+}
+
+.btn-comprobar {
+    font-weight: bold;
+    background-color: green;
+}
+
+#inputSubirArchivo {
+    display: none;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.fila-loader {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
