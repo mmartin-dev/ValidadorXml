@@ -1,51 +1,4 @@
 ﻿
-
-function mostrarTabla() {
-    var totalFiles = document.getElementById('inputSubirArchivo').files.length;
-    var esValido = true;
-
-    if (totalFiles > 0) {
-        for (var i = 0; i < totalFiles; i++) {
-            var file = document.getElementById('inputSubirArchivo').files[i];
-
-
-            if (file.type != "text/xml" && file.type != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")) {
-                esValido = false;
-                alert("Archivos no válidos, todos deben de ser tipo XML");
-                document.getElementById('inputSubirArchivo').value = "";
-                break;
-            }
-        }
-
-        if (esValido == true) {
-            var divTabla = document.getElementById('divTablaArchivos');
-            var codigoHtml = "";
-            codigoHtml += `<table class="table table-bordered" id="tablaArchivos">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nombre</th>
-                                </tr>
-                            </thead>
-                            <tbody>`;
-
-            for (var i = 0; i < totalFiles; i++) {
-                var file = document.getElementById('inputSubirArchivo').files[i];
-
-                codigoHtml += `<tr>
-                            <td>${i + 1}</td>
-                            <td>${file.name}</td>
-                        </tr>`;
-            }
-
-            codigoHtml += "</tbody></table>";
-            divTabla.innerHTML = codigoHtml;
-            document.getElementById('btnComprobar').style.display = "block";
-        }
-
-    }
-}
-
 function enviarXML() {
     var formData = new FormData();
     var totalFiles = document.getElementById('inputSubirArchivo').files.length;
@@ -111,7 +64,6 @@ function enviarXML() {
                 codigoHtml += `</tbody></table>`;
                 divTablaArchivos.innerHTML = codigoHtml;
 
-
                 for (var i = 0; i < respuesta.length; i++) {
                     if (respuesta[i].estado.toString().toLowerCase().trim() == 'vigente') {
                         document.getElementById(`valido-${i + 1}`).classList.add("estatus-vigente");
@@ -129,6 +81,5 @@ function enviarXML() {
                 alert("Ocurrió un error al verificar los CFDI(s): " + jqXHR);
             }
         });
-
     }
 }
